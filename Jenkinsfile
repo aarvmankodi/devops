@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven' // will configure this name in Jenkins later
+        maven 'Maven' // Must match name defined in Jenkins -> Manage Jenkins -> Tools
     }
 
     stages {
@@ -30,17 +30,18 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy (Run App)') {
             steps {
-                echo 'Deploying...'
-                sh 'ls -l target'
+                echo 'Running application...'
+                // Run the built JAR file to display the message in console logs
+                sh 'java -jar target/devops-demo-1.0-SNAPSHOT.jar'
             }
         }
     }
 
     post {
         always {
-            echo 'Build finished.'
+            echo 'Build pipeline completed.'
             junit '**/target/surefire-reports/*.xml'
         }
     }
