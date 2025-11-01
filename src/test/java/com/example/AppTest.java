@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Unit tests for the BankAccount class.
  */
-class BankAccountTest {
+class AppTest {
 
     private BankAccount account;
 
@@ -93,4 +93,3 @@ class BankAccountTest {
         assertEquals(0.00, account.getBalance(), "Balance should be 0 after withdrawing all funds");
     }
 }
-
