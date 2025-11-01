@@ -31,12 +31,15 @@ pipeline {
         }
 
         stage('Deploy (Run App)') {
-            steps {
-                echo 'Running application...'
-                // Run the built JAR file to display the message in console logs
-                sh 'java -jar target/atm-banking-system-1.0-SNAPSHOT.jar'
-            }
-        }
+    steps {
+        echo 'Running ATM Banking System in non-interactive mode...'
+
+        // Feed "4" to simulate user selecting "Exit"
+        sh '''
+            echo "4" | java -jar target/atm-banking-system-1.0-SNAPSHOT.jar
+        '''
+    }
+}
     }
 
     post {
