@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'Running application...'
                 // Run the built JAR file to display the message in console logs
-                sh 'java -jar target/devops-demo-1.0-SNAPSHOT.jar'
+                sh 'java -jar target/atm-banking-system-1.0-SNAPSHOT.jar'
             }
         }
     }
